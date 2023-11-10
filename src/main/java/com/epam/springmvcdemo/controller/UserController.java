@@ -29,6 +29,8 @@ public class UserController {
         model.addAttribute("users",users);
         model.addAttribute("user",new User());
 
+        System.out.println("Saved user: " + user.getId() + ", " + user.getUsername());
+
         return "user-page";
 
     }
