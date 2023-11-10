@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+</head>
+<body>
+<form  th:action="@{/users}" method="post" th:object="${user}">
+    <label>
+        <input  type="text" th:field="*{username}" placeholder="Username">
+    </label>
+    <label>
+        <input  type="text" th:field="*{email}" placeholder="Email">
+    </label>
+    <label>
+        <input  type="password" th:field="*{password}" placeholder="Password">
+    </label>
+
+    <button type="submit">Save</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
